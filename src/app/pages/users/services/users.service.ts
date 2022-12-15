@@ -2,7 +2,7 @@ import { USERS_API } from './../tokens/users.api';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { User } from '../models/user';
+import { User } from '../entities/user';
 
 @Injectable({
   providedIn: 'root'
