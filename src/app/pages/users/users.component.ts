@@ -1,10 +1,12 @@
-import { getUsersActions } from './state/users.actions';
-import { AppState } from './../../core/state/state.interface';
-import { Observable } from 'rxjs/internal/Observable';
-import { Component, OnInit } from '@angular/core';
-import { User } from './entities/user';
 import { Store } from '@ngrx/store';
-import { selectUserList } from './state/users.selectors';
+import { Component, OnInit } from '@angular/core';
+
+import { getUsersActions } from './state/users.actions';
+import { Observable } from 'rxjs/internal/Observable';
+import { User } from './entities/user';
+import { selectUserList, selectPostsList } from './state/users.selectors';
+import { Post } from '../posts/entities/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -12,15 +14,18 @@ import { selectUserList } from './state/users.selectors';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit{
-  users$: Observable<User[]> = this.store.select(selectUserList)
+  users$: Observable<User[]> = this.store.select(selectUserList);
 
-  constructor (private readonly store: Store) {}
+  constructor (
+    private readonly store: Store,
+    private readonly router: Router
+    ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(getUsersActions())
+    this.store.dispatch(getUsersActions());
   }
 
-  public fullInfo(): void {
-    
+  public fullInfo(userId: number): void {
+    this.router.navigate([`/${userId}`])
   }
 }
