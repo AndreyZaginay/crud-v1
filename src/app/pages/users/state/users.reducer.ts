@@ -3,13 +3,13 @@ import { UsersState } from './users-state.interface';
 import * as UsersActions from './users.actions';
 
 export const usersState: UsersState = {
-    users: []
+    userList: []
 }
 
 export const usersReducers = createReducer(
     usersState,
-    on(UsersActions.getUsersActionsSuccess, (state, { users }) => ({
+    on(UsersActions.getUsersActionsSuccess, (state, { userList }) => ({
         ...state,
-        users: users 
+        userList: userList 
     })),
 )

@@ -11,7 +11,7 @@ export class UsersEffects {
     return this.actions$.pipe(
       ofType(UsersActions.getUsersActions),
       switchMap(() => this.usersService.getUsers().pipe(
-        map((users: User[]) => UsersActions.getUsersActionsSuccess({ users }))
+        map((userList: User[]) => UsersActions.getUsersActionsSuccess({ userList }))
       ))
     );
   })

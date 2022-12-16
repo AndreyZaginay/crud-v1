@@ -1,13 +1,20 @@
+import { PostsState } from './../../posts/state/posts-state.interface';
 import { AppState } from './../../../core/state/state.interface';
-import {  createSelector } from '@ngrx/store';
+import {  createFeatureSelector, createSelector } from '@ngrx/store';
+import { UsersState } from './users-state.interface';
 
-export const selectUsers = (state: AppState) => state.users.users;
+export const selectUsersState = createFeatureSelector<UsersState>('users');
 
-export const selectPostList = (state: AppState) => state.posts.posts;
+export const selectUserList = createSelector(
+    selectUsersState,
+    ({ userList }) => userList
+)
 
-export const selectPosts = (id: number) => {
+export const selectPosts = createFeatureSelector<PostsState>('posts')
+
+export const selectPostsList = (id: number) => {
     return createSelector(
-        selectPostList,
-        (posts) => posts.filter(({ userId }) => userId === id)
+        selectPosts,
+        ({ postList }) => postList.filter(({ userId }) => userId === id)
     )
 }

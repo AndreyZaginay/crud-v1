@@ -1,5 +1,5 @@
 import { User } from "../entities/user";
 
 export interface UsersState {
-    users: User[]
+    userList: User[]
 }
