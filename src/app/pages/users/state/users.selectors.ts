@@ -10,17 +10,25 @@ export const selectUserList = createSelector(
     ({ userList }) => userList
 )
 
+export const selectUser = (userId: number) => {
+    return createSelector(
+        selectUserList,
+        userList => userList.find(({ id }) => id === userId)!
+    )
+}
+
 export const selectPosts = createFeatureSelector<PostsState>('posts')
 
 export const selectPostsList = createSelector(
     selectPosts,
     ({ postList }) => postList
 )
- 
 
-// export const selectPostsList = (id: number) => {
-//     return createSelector(
-//         selectPosts,
-//         ({ postList }) => postList.filter(({ userId }) => userId === id)
-//     )
-// }
+
+
+export const selectUserPostList = (id: number) => {
+    return createSelector(
+        selectPosts,
+        ({ postList }) => postList.filter(({ userId }) => userId === id)
+    )
+}

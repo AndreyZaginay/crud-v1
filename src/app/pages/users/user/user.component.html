@@ -1,1 +1,10 @@
-<p>user works!</p>
+<div *ngIf="user$ | async as user" class="details">
+  <p>{{ user.name }}</p>
+  <p>{{ user.username }}</p>
+  <p>{{ user.email }}</p>
+</div>
+<button (click)="toUsers()">To users</button>
+
+<div class="userPosts" *ngIf="posts$ | async as posts">
+  <p *ngFor="let post of posts">{{ post.title }}</p>
+</div>
