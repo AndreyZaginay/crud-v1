@@ -26,6 +26,6 @@ export class UsersComponent implements OnInit{
   }
 
   public fullInfo(userId: number): void {
-    this.router.navigate([`/${userId}`])
+    this.router.navigate([`users/${userId}`])
   }
 }

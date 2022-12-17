@@ -1,6 +1,6 @@
 <p>Users</p>
 <div *ngIf="users$ | async as users">
-  <p *ngFor="let user of users">
+  <p *ngFor="let user of users" (click)="fullInfo(user.id)">
     {{ user.name }}
   </p>
 </div>
