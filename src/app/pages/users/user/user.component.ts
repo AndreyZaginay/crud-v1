@@ -1,10 +1,10 @@
-import { getPostsActions, getPostsActionsSuccess } from './../../posts/state/posts.actions';
+import { getPostsActions } from './../../posts/state/posts.actions';
 import { Observable } from 'rxjs/internal/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { User } from '../entities/user';
-import { switchMap, take, tap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 import { selectUser, selectUserPostList } from '../state/users.selectors';
 import { Post } from '../../posts/entities/post';
 
@@ -36,10 +36,12 @@ export class UserComponent implements OnInit {
     this.posts$ = this.store.select(selectUserPostList(userId))
   }
 
+  public postInfo(postId: number): void {
+    this.router.navigate(['posts', `${postId}`])
+  }
+
   public toUsers(): void {
     this.router.navigate(['users'])
   }
-
-
 
 }

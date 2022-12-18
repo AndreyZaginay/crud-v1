@@ -1,4 +1,5 @@
 import {  createFeatureSelector, createSelector } from '@ngrx/store';
+import { selectPosts } from '../../posts/state/posts.selectors';
 
 import { PostsState } from './../../posts/state/posts-state.interface';
 import { UsersState } from './users-state.interface';
@@ -16,15 +17,6 @@ export const selectUser = (userId: number) => {
         userList => userList.find(({ id }) => id === userId)!
     )
 }
-
-export const selectPosts = createFeatureSelector<PostsState>('posts')
-
-export const selectPostsList = createSelector(
-    selectPosts,
-    ({ postList }) => postList
-)
-
-
 
 export const selectUserPostList = (id: number) => {
     return createSelector(

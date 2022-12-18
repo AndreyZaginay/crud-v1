@@ -1,7 +1,7 @@
 import { PostsService } from './../services/posts.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap, switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 
 import * as PostsActions from './posts.actions'
 import { Post } from '../entities/post';
@@ -17,6 +17,7 @@ export class PostsEffects {
             ))
         )
     })
+    
     constructor(
         private readonly actions$: Actions, 
         private readonly postsService: PostsService

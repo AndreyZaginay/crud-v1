@@ -1,1 +1,14 @@
-<p>post works!</p>
+<div class="post" *ngIf="post$ | async as post">
+  <p>{{ post.title }}</p>
+  <p>{{ post.body }}</p>
+</div>
+<button (click)="toPosts()">To posts</button>
+Comments:
+<div class="comments" *ngIf="comments$ | async as comments">
+  <div *ngFor="let comment of comments">
+    <div class="post">
+      <p>{{ comment.email }}</p>
+      <p>{{ comment.body }}</p>
+    </div>
+  </div>
+</div>

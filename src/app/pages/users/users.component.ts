@@ -1,12 +1,11 @@
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { getUsersActions } from './state/users.actions';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from './entities/user';
-import { selectUserList, selectPostsList } from './state/users.selectors';
-import { Post } from '../posts/entities/post';
-import { Router } from '@angular/router';
+import { selectUserList } from './state/users.selectors';
 
 @Component({
   selector: 'app-users',
