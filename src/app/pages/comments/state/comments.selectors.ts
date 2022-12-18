@@ -8,3 +8,10 @@ export const selectCommentList = createSelector(
     selectComments,
     ({ commentList }) => commentList
 )
+
+export const selectComment = (commentId: number) => {
+    return createSelector(
+        selectCommentList,
+        commentList => commentList.find(({ id }) => id === commentId)!
+    )
+}

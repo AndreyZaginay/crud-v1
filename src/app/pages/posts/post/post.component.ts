@@ -1,3 +1,4 @@
+import { getPostsActions } from './../state/posts.actions';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -25,6 +26,7 @@ comments$!: Observable<Comment[]>
   ) {}
 
   ngOnInit(): void {
+   
     this.post$ = this.route.params.pipe(
       switchMap(params => this.store.select(selectPost(+params['id']))),
       tap(params => this.getPostComments(+params['id']))

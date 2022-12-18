@@ -1,1 +1,8 @@
-<p>comment works!</p>
+<div *ngIf="comment$ | async as comment">
+  <p>{{ comment.email }}</p>
+  <p>{{ comment.name }}</p>
+  <p>{{ comment.body }}</p>
+  {{ comment.postId }}
+  <button (click)="postInfo(comment.postId)">To post</button>
+  <button (click)="toComments()">Comments list</button>
+</div>
