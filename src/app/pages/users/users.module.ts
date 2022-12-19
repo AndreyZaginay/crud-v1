@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
+import { ComponentsModule } from "../../shared/components/components.module";
 
 const routes: Routes = [
   {
@@ -16,13 +17,14 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [
-    UsersComponent,
-    UserComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    declarations: [
+        UsersComponent,
+        UserComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ComponentsModule
+    ]
 })
 export class UsersModule { }

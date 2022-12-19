@@ -1,12 +1,14 @@
 <div class="post" *ngIf="post$ | async as post">
   <p>{{ post.title }}</p>
   <p>{{ post.body }}</p>
+  <button (click)="toPosts()">To posts</button>
+  <button (click)="toUser(post.userId)">Author of post</button>
 </div>
-<button (click)="toPosts()">To posts</button>
+
 Comments:
 <div class="comments" *ngIf="comments$ | async as comments">
   <div *ngFor="let comment of comments">
-    <div class="post">
+    <div class="post" (click)="toComment(comment.id)">
       <p>{{ comment.email }}</p>
       <p>{{ comment.body }}</p>
     </div>

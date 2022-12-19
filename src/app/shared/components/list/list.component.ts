@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,9 +7,21 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-// @Input()
-// data
+@Input()
+data!: {}[]
 
-  constructor() {}
+@Input()
+displayColums!: string[];
+
+@Input()
+route!: string
+
+constructor(
+  private readonly router: Router
+) {}
+
+public fullInfo(id: number): void {
+  this.router.navigate([`${this.route}/${id}`])
+}
 
 }

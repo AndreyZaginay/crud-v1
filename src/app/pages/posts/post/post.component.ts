@@ -1,4 +1,3 @@
-import { getPostsActions } from './../state/posts.actions';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +8,7 @@ import { Post } from '../entities/post';
 import { getCommentsActions } from './../../comments/state/comments.actions';
 import { selectPost, selectPostComments } from './../state/posts.selectors';
 import { Comment } from '../../comments/entities/comment';
+import { getUsersActions } from '../../users/state/users.actions';
 
 @Component({
   selector: 'app-post',
@@ -26,11 +26,11 @@ comments$!: Observable<Comment[]>
   ) {}
 
   ngOnInit(): void {
-   
     this.post$ = this.route.params.pipe(
       switchMap(params => this.store.select(selectPost(+params['id']))),
       tap(params => this.getPostComments(+params['id']))
     )
+    this.store.dispatch(getUsersActions());
   }
 
   private getPostComments(postId: number): void {
@@ -40,6 +40,14 @@ comments$!: Observable<Comment[]>
 
   public toPosts(): void {
     this.router.navigate(['posts'])
+  }
+
+  public toUser(userId: number): void {
+    this.router.navigate([`users/${userId}`])
+  }
+
+  public toComment(commentId: number): void {
+    this.router.navigate([`comments/${commentId}`])
   }
 
 }

@@ -14,6 +14,8 @@ import { selectUserList } from './state/users.selectors';
 })
 export class UsersComponent implements OnInit{
   users$: Observable<User[]> = this.store.select(selectUserList);
+  colums: string[] = ['id', 'name', 'username', 'email', 'phone'];
+  route: string = 'users';
 
   constructor (
     private readonly store: Store,
@@ -22,9 +24,5 @@ export class UsersComponent implements OnInit{
 
   ngOnInit(): void {
     this.store.dispatch(getUsersActions());
-  }
-
-  public fullInfo(userId: number): void {
-    this.router.navigate([`users/${userId}`])
   }
 }

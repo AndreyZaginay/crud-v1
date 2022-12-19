@@ -1,3 +1,4 @@
+import { getUsersActions } from './../state/users.actions';
 import { getPostsActions } from './../../posts/state/posts.actions';
 import { Observable } from 'rxjs/internal/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,11 +25,11 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.user$ = this.route.params.pipe(
       switchMap(params => this.store.select(selectUser(+params['id']))),
       tap(params => this.getUserPosts(+params['id']))
     )
-
   }
 
   private getUserPosts(userId: number): void {

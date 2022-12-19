@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { StateModule } from './core/state';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AppRoutingModule,
     HttpClientModule,
     StateModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
