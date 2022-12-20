@@ -18,6 +18,8 @@ import { getUsersActions } from '../../users/state/users.actions';
 export class PostComponent implements OnInit {
 post$!: Observable<Post>;
 comments$!: Observable<Comment[]>
+colums: string[] = ['id', 'name', 'email'];
+routeList: string = 'comments';
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -45,9 +47,4 @@ comments$!: Observable<Comment[]>
   public toUser(userId: number): void {
     this.router.navigate([`users/${userId}`])
   }
-
-  public toComment(commentId: number): void {
-    this.router.navigate([`comments/${commentId}`])
-  }
-
 }

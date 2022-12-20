@@ -17,6 +17,8 @@ import { Post } from '../../posts/entities/post';
 export class UserComponent implements OnInit {
   user$!: Observable<User>;
   posts$!: Observable<Post[]>;
+  colums: string[] = ['id', 'title']
+  routeList: string = 'posts';
 
   constructor(
     private readonly store: Store,
@@ -35,10 +37,6 @@ export class UserComponent implements OnInit {
   private getUserPosts(userId: number): void {
     this.store.dispatch(getPostsActions())
     this.posts$ = this.store.select(selectUserPostList(userId))
-  }
-
-  public postInfo(postId: number): void {
-    this.router.navigate(['posts', `${postId}`])
   }
 
   public toUsers(): void {

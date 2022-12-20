@@ -15,11 +15,10 @@ import { selectUserList } from './state/users.selectors';
 export class UsersComponent implements OnInit{
   users$: Observable<User[]> = this.store.select(selectUserList);
   colums: string[] = ['id', 'name', 'username', 'email', 'phone'];
-  route: string = 'users';
+  routeList: string = 'users';
 
   constructor (
     private readonly store: Store,
-    private readonly router: Router
     ) {}
 
   ngOnInit(): void {

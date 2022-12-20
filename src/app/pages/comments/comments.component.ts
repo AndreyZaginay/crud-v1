@@ -12,19 +12,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit{
-comments$: Observable<Comment[]> = this.store.select(selectCommentList)
+comments$: Observable<Comment[]> = this.store.select(selectCommentList);
+colums: string[] = ['id', 'name', 'email'];
+routeList: string = 'comments';
 
   constructor(
     private readonly store: Store,
-    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
     this.store.dispatch(getCommentsActions())
   }
-
-  public fullInfo(commentId: number): void {
-    this.router.navigate([`comments/${commentId}`])
-  }
-
 }

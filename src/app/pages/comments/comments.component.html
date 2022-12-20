@@ -1,5 +1,7 @@
 <div *ngIf="comments$ | async as comments">
-  <div class="comments" *ngFor="let comment of comments">
-    <p (click)="fullInfo(comment.id)">{{ comment.email }} {{ comment.name }}</p>
-  </div>
+  <app-list
+    [data]="comments"
+    [displayColums]="colums"
+    [route]="routeList"
+  ></app-list>
 </div>

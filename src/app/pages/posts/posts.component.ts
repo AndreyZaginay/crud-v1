@@ -13,17 +13,14 @@ import { Post } from './entities/post';
 })
 export class PostsComponent implements OnInit {
 posts$: Observable<Post[]> = this.store.select(selectPostsList);
+colums: string[] = ['id', 'title'];
+routeList: string = 'posts'
 
   constructor(
     private readonly store: Store,
-    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
     this.store.dispatch(getPostsActions())
-  }
-
-  public fullInfo(postId: number): void {
-    this.router.navigate([`posts/${ postId }`])
   }
 }

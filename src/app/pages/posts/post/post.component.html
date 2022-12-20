@@ -7,10 +7,9 @@
 
 Comments:
 <div class="comments" *ngIf="comments$ | async as comments">
-  <div *ngFor="let comment of comments">
-    <div class="post" (click)="toComment(comment.id)">
-      <p>{{ comment.email }}</p>
-      <p>{{ comment.body }}</p>
-    </div>
-  </div>
+  <app-list
+    [data]="comments"
+    [displayColums]="colums"
+    [route]="routeList"
+  ></app-list>
 </div>

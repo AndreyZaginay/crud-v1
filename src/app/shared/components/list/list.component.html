@@ -5,6 +5,7 @@
   </ng-container>
   <tr
     mat-row
+    class="row"
     *matRowDef="let row; columns: displayColums"
     (click)="fullInfo(row.id)"
   ></tr>
