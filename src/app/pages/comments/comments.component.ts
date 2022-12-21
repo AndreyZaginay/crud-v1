@@ -1,4 +1,4 @@
-import { selectCommentList } from './state/comments.selectors';
+import { filterByInputValue, selectCommentList, slectByGreatestId, sortByNameLength } from './state/comments.selectors';
 import { getCommentsActions } from './state/comments.actions';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -22,5 +22,21 @@ routeList: string = 'comments';
 
   ngOnInit(): void {
     this.store.dispatch(getCommentsActions())
+  }
+
+  public slectByLessId(): void {
+    this.comments$ = this.store.select(selectCommentList);
+  }
+
+  public slectByGreatestId(): void {
+    this.comments$ = this.store.select(slectByGreatestId);
+  }
+
+  public sortByNameLength(): void {
+    this.comments$ = this.store.select(sortByNameLength)
+  }
+
+  public filterByInputValue(value: string): void {
+    this.comments$ = this.store.select(filterByInputValue(value))
   }
 }

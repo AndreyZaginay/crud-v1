@@ -1,4 +1,7 @@
 <p>Users</p>
+<input #input type="text" (input)="filterByInputValue(input.value)" />
+<button (click)="sortByGreatestId()">Sort by greatest id</button>
+<button (click)="sortByLesstId()">Sort by less id</button>
 <div *ngIf="users$ | async as users">
   <app-list
     [data]="users"

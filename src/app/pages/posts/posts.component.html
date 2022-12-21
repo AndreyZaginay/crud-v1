@@ -1,3 +1,10 @@
+<p>Posts</p>
+<input #input type="text" (input)="filterByInputValue(input.value)" />
+<button (click)="slectByGreatestId()">Sort by greatest id</button>
+<button (click)="slectByLessId()">Sort by less id</button>
+<button (click)="filterByOddId()">filter by even id</button>
+<button (click)="filterByEvenId()">filter by odd id</button>
+<button (click)="sortByTitleLength()">Sort by title length</button>
 <div *ngIf="posts$ | async as posts">
   <app-list
     [data]="posts"

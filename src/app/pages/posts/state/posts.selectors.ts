@@ -6,8 +6,35 @@ export const selectPosts = createFeatureSelector<PostsState>('posts')
 
 export const selectPostsList = createSelector(
     selectPosts,
-    ({ postList }) => postList
+    ({ postList }) => [...postList].sort((a, b) => a.id - b.id)
 ) 
+
+export const selectPostListByGreatestId = createSelector(
+    selectPostsList,
+    postList => [...postList].sort((a, b) => b.id - a.id)
+)
+
+export const filterByOddId = createSelector(
+    selectPostsList,
+    postList => postList.filter(({ id }) => id % 2 === 0)
+)
+
+export const filterByEvenId = createSelector(
+    selectPostsList,
+    postList => postList.filter(({ id }) => id % 2 !== 0)
+)
+
+export const sortByTitleLength = createSelector(
+    selectPostsList,
+    postList => [...postList].sort((a, b) => a.title.split('').length - b.title.split('').length)
+)
+
+export const filterByInputValue = (value: string) => {
+    return createSelector(
+        selectPostsList,
+        postList => postList.filter(({ title }) => title.toLowerCase().includes(value))
+    )
+}
 
 export const selectPost = (postId: number) => {
     return createSelector(

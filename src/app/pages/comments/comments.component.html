@@ -1,3 +1,8 @@
+<p>Comments</p>
+<input #input type="text" (input)="filterByInputValue(input.value)" />
+<button (click)="slectByGreatestId()">Sort by greatest id</button>
+<button (click)="slectByLessId()">Sort by less id</button>
+<button (click)="sortByNameLength()">Sort by name length</button>
 <div *ngIf="comments$ | async as comments">
   <app-list
     [data]="comments"

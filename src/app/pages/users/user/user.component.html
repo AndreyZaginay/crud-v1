@@ -4,7 +4,7 @@
   <p>{{ user.email }}</p>
 </div>
 <button (click)="toUsers()">To users</button>
-
+Users post:
 <div class="userPosts" *ngIf="posts$ | async as posts">
   <app-list
     [data]="posts"
