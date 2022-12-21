@@ -1,17 +1,24 @@
+<mat-toolbar>
+  <button
+    type="button"
+    mat-button
+    (click)="drawer.toggle()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <nav>
-      <a routerLink="users">Users</a>
-      <a routerLink="posts">Posts</a>
-      <a routerLink="comments">Comments</a>
-    </nav>
+    <a routerLink="users">Users</a>
+    <a routerLink="posts">Posts</a>
+    <a routerLink="comments">Comments</a>
   </mat-drawer>
 
   <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
-
     <main>
       <router-outlet></router-outlet>
     </main>

@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { StateModule } from './core/state';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     HttpClientModule,
     StateModule,
     SharedModule,
+    MatToolbarModule,
+    MatIconModule,
     MatSidenavModule,
     BrowserAnimationsModule
   ],
