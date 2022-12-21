@@ -22,7 +22,7 @@ export const sortByNameLength = createSelector(
 export const filterByInputValue = (value: string) => {
     return createSelector(
         selectCommentList,
-        commentList => commentList.filter(({ name }) => name.toLowerCase().includes(value))
+        commentList => commentList.filter(({ name }) => name.toLowerCase().includes(value.toLowerCase().trim()))
     )
 }
 

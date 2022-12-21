@@ -32,7 +32,7 @@ export const sortByTitleLength = createSelector(
 export const filterByInputValue = (value: string) => {
     return createSelector(
         selectPostsList,
-        postList => postList.filter(({ title }) => title.toLowerCase().includes(value))
+        postList => postList.filter(({ title }) => title.toLowerCase().includes(value.toLowerCase().trim()))
     )
 }
 

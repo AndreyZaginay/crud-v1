@@ -25,7 +25,7 @@ export const selectUserListByGreatestId = createSelector(
 export const filterByInputValue = (value: string) => {
     return createSelector(
         selectUserList,
-        userList => userList.filter(({ name }) => name.toLowerCase().includes(value))
+        userList => userList.filter(({ name }) => name.toLowerCase().includes(value.toLowerCase().trim()))
     )
 }
 
