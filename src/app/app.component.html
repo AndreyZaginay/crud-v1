@@ -9,18 +9,16 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
+  <span>CRUD-V1</span>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <a routerLink="users">Users</a>
-    <a routerLink="posts">Posts</a>
-    <a routerLink="comments">Comments</a>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side">
+    <p routerLink="users">Users</p>
+    <p routerLink="posts">Posts</p>
+    <p routerLink="comments">Comments</p>
   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </mat-drawer-container>

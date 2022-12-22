@@ -1,10 +1,11 @@
-import { SharedModule } from './../../shared/shared.module';
-import { CommentsComponent } from './comments.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+
+import { SharedModule } from './../../shared/shared.module';
+import { CommentsComponent } from './comments.component';
 import { CommentComponent } from './comment/comment.component';
-import { ComponentsModule } from "../../shared/components/components.module";
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     ],
     imports: [
         CommonModule,
+        MatButtonModule,
         RouterModule.forChild(routes),
         SharedModule
     ]

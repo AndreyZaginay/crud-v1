@@ -2,7 +2,6 @@
   <p>{{ comment.email }}</p>
   <p>{{ comment.name }}</p>
   <p>{{ comment.body }}</p>
-  {{ comment.postId }}
-  <button (click)="postInfo(comment.postId)">To post</button>
-  <button (click)="toComments()">Comments list</button>
+  <button mat-raised-button (click)="postInfo(comment.postId)">To post</button>
+  <button mat-raised-button (click)="toComments()">Comments list</button>
 </div>
