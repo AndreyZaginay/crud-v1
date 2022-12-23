@@ -1,8 +1,13 @@
-<form>
-  <div>
-    <input type="text" />
+<form [formGroup]="authForm">
+  <div class="input-div">
+    <span>Email</span>
+    <input formControlName="email" type="text" />
   </div>
-  <div>
-    <input type="text" />
+  <div class="input-div">
+    <span>Password</span>
+    <input formControlName="password" type="text" />
   </div>
+  <button [disabled]="authForm.invalid" (click)="submitAuthForm()">
+    Log in
+  </button>
 </form>
