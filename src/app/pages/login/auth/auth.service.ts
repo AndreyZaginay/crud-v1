@@ -15,4 +15,9 @@ export class AuthService {
   public logIn(): void {
     this.isAuth = true;
   }
+
+  public logOut(): void {
+    this.isAuth = false;
+  }
+
 }

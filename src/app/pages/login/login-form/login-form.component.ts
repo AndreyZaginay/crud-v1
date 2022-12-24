@@ -1,14 +1,14 @@
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class LoginFormComponent {
   authForm!: FormGroup;
 
   constructor(
@@ -25,7 +25,7 @@ export class AuthComponent implements OnInit {
       return
     }
     this.authService.logIn();
-    this.router.navigate(['users'])
+    this.router.navigate(['auth/profile'])
   }
 
   private innitAuthForm(): void {
@@ -34,5 +34,4 @@ export class AuthComponent implements OnInit {
       password: new FormControl(null, Validators.required)
     })
   }
-
 }
