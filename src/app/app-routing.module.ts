@@ -1,37 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './pages/login/auth/auth.guard';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) 
+    loadChildren: () => import('./pages/auth/auth.routing').then(p => p.AuthRouting)
   },
   {
-    path: 'users',
-    loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'posts',
-    loadChildren: () => import('./pages/posts/posts.module').then(m => m.PostsModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'comments',
-    loadChildren: () => import('./pages/comments/comments.module').then(m => m.CommentsModule),
-    canActivate: [AuthGuard]
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    redirectTo: 'dashboard',
   },
   {
     path: '**',
-    component: NotFoundComponent
+    loadChildren: () => import('./pages/not-found/not-found.routing').then(p => p.PageNotFoundRouting)
   }
 ];
 
