@@ -4,7 +4,7 @@ import { DashboardComponent } from "./dashboard.component";
 
 export const DashboardRouting: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
     children: [
       {
@@ -19,6 +19,15 @@ export const DashboardRouting: Routes = [
         path: 'comments',
         loadChildren: () => import('./comments/comments.module').then(m => m.CommentsModule)
       },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'users',
+      },
+      {
+        path: '**',
+        redirectTo: 'users',
+      }
     ]
-  }
+  },
 ];
