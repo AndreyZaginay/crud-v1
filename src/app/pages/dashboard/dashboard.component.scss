@@ -1,0 +1,18 @@
+p {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+
+p:hover {
+  color: gray;
+}
+
+mat-drawer-container {
+  height: calc(100% - 50px);
+}
+
+mat-toolbar {
+  height: 70px;
+}

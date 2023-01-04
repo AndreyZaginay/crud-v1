@@ -1,2 +1,2 @@
-export * from './state.interface';
+export * from './interfaces/state.interface';
 export * from './state.module';

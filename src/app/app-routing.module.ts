@@ -1,42 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './pages/login/auth/auth.guard';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthGuard } from "./shared/guards/auth.guard";
 
 const routes: Routes = [
   {
-    path: 'auth',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) 
-  },
-  {
-    path: 'users',
-    loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'posts',
-    loadChildren: () => import('./pages/posts/posts.module').then(m => m.PostsModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'comments',
-    loadChildren: () => import('./pages/comments/comments.module').then(m => m.CommentsModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
+  {
+    path: 'dashboard',
+    canActivate: [ AuthGuard ],
+    canLoad: [ AuthGuard ],
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.routing').then(p => p.AuthRouting),
   },
   {
     path: '**',
-    component: NotFoundComponent
+    redirectTo: 'dashboard',
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
