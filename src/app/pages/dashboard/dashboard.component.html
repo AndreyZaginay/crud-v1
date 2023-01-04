@@ -10,6 +10,11 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>CRUD-V1</span>
+
+  <div style="margin-left: auto">
+    <span>Hello {{userEmail$ | async}}</span>&nbsp;
+    <button (click)="logout()">Logout</button>
+  </div>
 </mat-toolbar>
 
 <mat-drawer-container autosize>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { delay, EMPTY, of, Observable } from "rxjs";
+import { of, Observable } from "rxjs";
 
 @Injectable()
 export class AuthService {
@@ -8,14 +8,14 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<string> {
-    return of(email).pipe(delay(1000));
+    return of(email);
   }
 
   register(email: string, password: string): Observable<string> {
-    return of(email).pipe(delay(1000));
+    return of(email);
   }
 
-  logout(): Observable<never> {
-    return EMPTY.pipe(delay(1000));
+  logout(): Observable<string> {
+    return of('');
   }
 }
