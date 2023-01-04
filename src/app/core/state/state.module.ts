@@ -10,16 +10,18 @@ import { postsReducers } from 'src/app/pages/dashboard/posts/state/posts.reducer
 import { PostsEffects } from 'src/app/pages/dashboard/posts/state/posts.effects';
 import { commentsReducer } from 'src/app/pages/dashboard/comments/state/comments.reducer';
 import { CommentsEffects } from 'src/app/pages/dashboard/comments/state/comments.effects';
-
+import { authReducer } from "./resudcers/auth.reducer";
+import { AuthEffects } from "./effects/auth.effects";
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forRoot({users: usersReducers, posts: postsReducers, comments: commentsReducer}),
-    EffectsModule.forRoot([UsersEffects, PostsEffects, CommentsEffects]),
+    StoreModule.forRoot({ users: usersReducers, posts: postsReducers, comments: commentsReducer, auth: authReducer }),
+    EffectsModule.forRoot([ UsersEffects, PostsEffects, CommentsEffects, AuthEffects ]),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ]
 })
-export class StateModule { }
+export class StateModule {
+}

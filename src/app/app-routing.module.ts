@@ -1,24 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes, UrlSegment } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.routing').then(p => p.AuthRouting)
-  },
-  {
-    path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
-  },
-  {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
   },
   {
-    path: '**',
-    loadChildren: () => import('./pages/not-found/not-found.routing').then(p => p.PageNotFoundRouting)
-  }
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.routing').then(p => p.AuthRouting),
+  },
 ];
 
 @NgModule({

@@ -9,8 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StateModule } from './core/state';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from "./core/core.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StateModule,
+    CoreModule,
     SharedModule,
     MatToolbarModule,
     MatIconModule,
