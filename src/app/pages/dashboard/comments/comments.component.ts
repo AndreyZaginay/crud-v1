@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class CommentsComponent implements OnInit{
 comments$: Observable<Comment[]> = this.store.select(selectCommentList);
 colums: string[] = ['id', 'name', 'email'];
-routeList: string = 'comments';
+currentRoute: string = 'comments';
 
   constructor(
     private readonly store: Store,
@@ -24,19 +24,19 @@ routeList: string = 'comments';
     this.store.dispatch(getCommentsActions())
   }
 
-  public slectByLessId(): void {
+ slectByLessId(): void {
     this.comments$ = this.store.select(selectCommentList);
   }
 
-  public slectByGreatestId(): void {
+ slectByGreatestId(): void {
     this.comments$ = this.store.select(slectByGreatestId);
   }
 
-  public sortByNameLength(): void {
+ sortByNameLength(): void {
     this.comments$ = this.store.select(sortByNameLength)
   }
 
-  public filterByInputValue(value: string): void {
+ filterByInputValue(value: string): void {
     this.comments$ = this.store.select(filterByInputValue(value))
   }
 }

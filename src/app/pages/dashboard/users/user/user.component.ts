@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
   user$!: Observable<User>;
   posts$!: Observable<Post[]>;
   colums: string[] = ['id', 'title']
-  routeList: string = 'posts';
+  currentRoute: string = 'posts';
 
   constructor(
     private readonly store: Store,

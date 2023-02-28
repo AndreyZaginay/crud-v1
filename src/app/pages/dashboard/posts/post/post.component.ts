@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
 post$!: Observable<Post>;
 comments$!: Observable<Comment[]>
 colums: string[] = ['id', 'name', 'email'];
-routeList: string = 'comments';
+currentRoute: string = 'comments';
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -40,11 +40,11 @@ routeList: string = 'comments';
     this.comments$ = this.store.select(selectPostComments(postId))
   }
 
-  public toPosts(): void {
+  toPosts(): void {
     this.router.navigate(['posts'])
   }
 
-  public toUser(userId: number): void {
-    this.router.navigate([`users/${userId}`])
+  toUser(userId: number): void {
+    this.router.navigate([`dashboard/users/${userId}`])
   }
 }

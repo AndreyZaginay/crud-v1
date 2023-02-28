@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -14,14 +14,14 @@ data!: {}[]
 displayColums!: string[];
 
 @Input()
-route!: string
+currentRoute!: string
 
 constructor(
   private readonly router: Router
 ) {}
 
-public fullInfo(id: number): void {
-  this.router.navigate([`${this.route}/${id}`])
+fullInfo(id: number): void {
+  this.router.navigate([`dashboard/${this.currentRoute}/${id}`])
 }
 
 }

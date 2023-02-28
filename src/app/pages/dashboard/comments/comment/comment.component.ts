@@ -1,9 +1,10 @@
-import { getPostsActions } from '../../posts/state/posts.actions';
 import { Observable, switchMap, tap } from 'rxjs';
-import { Comment } from '../entities/comment';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
+import { Comment } from '../entities/comment';
+import { getPostsActions } from '../../posts/state/posts.actions';
 import { Post } from '../../posts/entities/post';
 import { selectComment } from '../state/comments.selectors';
 
@@ -30,11 +31,11 @@ export class CommentComponent {
       )
     }
 
-    public postInfo(postId: number): void {
-      this.router.navigate(['posts', `${postId}`])
+    postInfo(postId: number): void {
+      this.router.navigate(['dashboard', 'posts', `${postId}`])
     }
 
-    public toComments(): void {
+    toComments(): void {
       this.router.navigate(['comments'])
     }
 }

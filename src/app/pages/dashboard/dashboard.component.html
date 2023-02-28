@@ -12,7 +12,8 @@
   <span>CRUD-V1</span>
 
   <div style="margin-left: auto">
-    <span>Hello {{userEmail$ | async}}</span>&nbsp;
+    <span>Hello {{ userEmail$ | async }}</span
+    >&nbsp;
     <button (click)="logout()">Logout</button>
   </div>
 </mat-toolbar>
@@ -20,12 +21,11 @@
 <mat-drawer-container autosize>
   <mat-drawer #drawer mode="side">
     <p routerLink="auth">Auth</p>
-    <p routerLink="users">Users</p>
-    <p routerLink="posts">Posts</p>
-    <p routerLink="comments">Comments</p>
+    <p routerLink="users" routerLinkActive="active-route">Users</p>
+    <p routerLink="posts" routerLinkActive="active-route">Posts</p>
+    <p routerLink="comments" routerLinkActive="active-route">Comments</p>
   </mat-drawer>
   <main>
     <router-outlet></router-outlet>
   </main>
 </mat-drawer-container>
-

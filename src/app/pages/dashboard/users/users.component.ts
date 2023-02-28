@@ -15,7 +15,7 @@ import { filterByInputValue, selectUserList, selectUserListByGreatestId } from '
 export class UsersComponent implements OnInit{
   users$: Observable<User[]> = this.store.select(selectUserList);
   colums: string[] = ['id', 'name', 'username', 'email', 'phone'];
-  routeList: string = 'users';
+  currentRoute: string = 'users';
 
   constructor (
     private readonly store: Store,
